@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Attendance</title>
+    {% load static %}
+    <script src="{% static 'script.js' %}"></script>
+</head>
+<body>
+    <h2 id="main">
+        <span style="--i:1;">O</span>
+        <span style="--i:2;">b</span>
+        <span style="--i:3;">j</span>
+        <span style="--i:4;">e</span>
+        <span style="--i:5;">c</span>
+        <span style="--i:6;">t</span>
+        <span style="--i:8;margin-left:2vw;">D</span>
+        <span style="--i:9;">e</span>
+        <span style="--i:10;">t</span>
+        <span style="--i:11;">e</span>
+        <span style="--i:12;">c</span>
+        <span style="--i:13;">t</span>
+        <span style="--i:14;">i</span>
+        <span style="--i:15;">o</span>
+        <span style="--i:16;">n</span>
+    </h2>
+    <div class="forms">
+        <form method = "POST" enctype="multipart/form-data" action="{% url 'photo' %}">
+            {% csrf_token %}
+            <input type="file" name="document" id="file" class="in" accept="image/*">
+            <label for="file" style="--clr:#00ccff;--i:1;" class="lb">
+                <span>Choose a Photo</span>
+            </label>
+            <input type="text" value="Entername" id="name" name="texts">
+            <button type="submit" id="submit" class="btn" style="--clr:#22e622;--i:1;"><span>Upload File</span></button>
+        </form>
+    </div>
+    <img src="{% url 'attendance' %}" width="40%" style="margin:20px;">
+</body>
+</html>
